@@ -1,0 +1,200 @@
+[
+  {
+    "key": "home",
+    "lang": "ar",
+    "slug": "",
+    "url": "https://moalam-gypsumboard-makkah.com/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/",
+    "bytes": 177568
+  },
+  {
+    "key": "home",
+    "lang": "en",
+    "slug": "",
+    "url": "https://moalam-gypsumboard-makkah.com/en/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/en/",
+    "bytes": 177201
+  },
+  {
+    "key": "about",
+    "lang": "ar",
+    "slug": "من-نحن",
+    "url": "https://moalam-gypsumboard-makkah.com/من-نحن/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/من-نحن/",
+    "bytes": 84541
+  },
+  {
+    "key": "about",
+    "lang": "en",
+    "slug": "من-نحن",
+    "url": "https://moalam-gypsumboard-makkah.com/en/من-نحن/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/en/من-نحن/",
+    "bytes": 84163
+  },
+  {
+    "key": "services",
+    "lang": "ar",
+    "slug": "خدماتنا",
+    "url": "https://moalam-gypsumboard-makkah.com/خدماتنا/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/خدماتنا/",
+    "bytes": 102201
+  },
+  {
+    "key": "services",
+    "lang": "en",
+    "slug": "خدماتنا",
+    "url": "https://moalam-gypsumboard-makkah.com/en/خدماتنا/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/en/خدماتنا/",
+    "bytes": 101801
+  },
+  {
+    "key": "gallery",
+    "lang": "ar",
+    "slug": "معرض-الأعمال",
+    "url": "https://moalam-gypsumboard-makkah.com/معرض-الأعمال/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/معرض-الأعمال/",
+    "bytes": 124916
+  },
+  {
+    "key": "gallery",
+    "lang": "en",
+    "slug": "معرض-الأعمال",
+    "url": "https://moalam-gypsumboard-makkah.com/en/معرض-الأعمال/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/en/معرض-الأعمال/",
+    "bytes": 124464
+  },
+  {
+    "key": "faq",
+    "lang": "ar",
+    "slug": "الأسئلة-الشائعة",
+    "url": "https://moalam-gypsumboard-makkah.com/الأسئلة-الشائعة/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/الأسئلة-الشائعة/",
+    "bytes": 88045
+  },
+  {
+    "key": "faq",
+    "lang": "en",
+    "slug": "الأسئلة-الشائعة",
+    "url": "https://moalam-gypsumboard-makkah.com/en/الأسئلة-الشائعة/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/en/الأسئلة-الشائعة/",
+    "bytes": 87593
+  },
+  {
+    "key": "contact",
+    "lang": "ar",
+    "slug": "اتصل-بنا",
+    "url": "https://moalam-gypsumboard-makkah.com/اتصل-بنا/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/اتصل-بنا/",
+    "bytes": 99000
+  },
+  {
+    "key": "contact",
+    "lang": "en",
+    "slug": "اتصل-بنا",
+    "url": "https://moalam-gypsumboard-makkah.com/en/اتصل-بنا/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/en/اتصل-بنا/",
+    "bytes": 98571
+  },
+  {
+    "key": "blog",
+    "lang": "ar",
+    "slug": "مقالات",
+    "url": "https://moalam-gypsumboard-makkah.com/مقالات/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/مقالات/",
+    "bytes": 88548
+  },
+  {
+    "key": "blog",
+    "lang": "en",
+    "slug": "مقالات",
+    "url": "https://moalam-gypsumboard-makkah.com/en/مقالات/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/en/مقالات/",
+    "bytes": 87750
+  },
+  {
+    "key": "privacy",
+    "lang": "ar",
+    "slug": "سياسة-الخصوصية",
+    "url": "https://moalam-gypsumboard-makkah.com/سياسة-الخصوصية/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/سياسة-الخصوصية/",
+    "bytes": 87912
+  },
+  {
+    "key": "privacy",
+    "lang": "en",
+    "slug": "سياسة-الخصوصية",
+    "url": "https://moalam-gypsumboard-makkah.com/en/سياسة-الخصوصية/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/en/سياسة-الخصوصية/",
+    "bytes": 87468
+  },
+  {
+    "key": "terms",
+    "lang": "ar",
+    "slug": "الشروط-والأحكام",
+    "url": "https://moalam-gypsumboard-makkah.com/الشروط-والأحكام/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/الشروط-والأحكام/",
+    "bytes": 88214
+  },
+  {
+    "key": "terms",
+    "lang": "en",
+    "slug": "الشروط-والأحكام",
+    "url": "https://moalam-gypsumboard-makkah.com/en/الشروط-والأحكام/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/en/الشروط-والأحكام/",
+    "bytes": 87764
+  },
+  {
+    "key": "post-moalim-gypsum-board-makkah",
+    "lang": "ar",
+    "slug": "معلم-جبس-جبسم-بورد-مكة-0599480178",
+    "url": "https://moalam-gypsumboard-makkah.com/معلم-جبس-جبسم-بورد-مكة-0599480178/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/معلم-جبس-جبسم-بورد-مكة-0599480178/",
+    "bytes": 97180
+  },
+  {
+    "key": "post-moalim-gypsum-board-makkah",
+    "lang": "en",
+    "slug": "معلم-جبس-جبسم-بورد-مكة-0599480178",
+    "url": "https://moalam-gypsumboard-makkah.com/en/معلم-جبس-جبسم-بورد-مكة-0599480178/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/en/معلم-جبس-جبسم-بورد-مكة-0599480178/",
+    "bytes": 96593
+  },
+  {
+    "key": "post-gypsum-board-decor-makkah",
+    "lang": "ar",
+    "slug": "دیکورات-جبس-بورد-مكة-0599480178",
+    "url": "https://moalam-gypsumboard-makkah.com/دیکورات-جبس-بورد-مكة-0599480178/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/دیکورات-جبس-بورد-مكة-0599480178/",
+    "bytes": 98929
+  },
+  {
+    "key": "post-gypsum-board-decor-makkah",
+    "lang": "en",
+    "slug": "دیکورات-جبس-بورد-مكة-0599480178",
+    "url": "https://moalam-gypsumboard-makkah.com/en/دیکورات-جبس-بورد-مكة-0599480178/",
+    "status": 200,
+    "final_url": "https://moalam-gypsumboard-makkah.com/en/دیکورات-جبس-بورد-مكة-0599480178/",
+    "bytes": 98352
+  }
+]

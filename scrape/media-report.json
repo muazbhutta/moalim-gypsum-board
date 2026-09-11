@@ -1,0 +1,10 @@
+{
+  "unique_files_downloaded": 41,
+  "urls_mapped": 80,
+  "files_on_disk": 77,
+  "bytes_on_disk": 28017175,
+  "bytes_originals": 26017213,
+  "failed": [],
+  "unmapped": [],
+  "ffmpeg": true
+}

@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* Palette taken from the client's logo: gold #c4942e and charcoal. Text colours all pass WCAG AA on white. */
+@theme {
+  --color-gold-50: #fbf6ec;
+  --color-gold-100: #f6ebd3;
+  --color-gold-200: #eed7a9;
+  --color-gold-300: #e2bf78;
+  --color-gold-500: #c4942e;
+  --color-gold-600: #a67a22;
+  --color-gold-700: #86611d;
+  --color-gold-800: #6b4d18;
+  --color-ink: #1b1b1b;
+  --color-ink-soft: #333333;
+  --color-muted: #555555;
+  --color-line: #e7e1d6;
+  --color-wa: #157a37;
+  --color-wa-dark: #0f5f2a;
+
+  --font-sans: var(--font-tajawal), ui-sans-serif, system-ui, "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+    line-height: 1.75;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Arabic needs a touch more line height and no letter-spacing. */
+  :lang(ar) {
+    letter-spacing: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.35;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible keyboard focus everywhere. */
+  :focus-visible {
+    outline: 3px solid var(--color-gold-700);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+
+  .prose-block p {
+    @apply mb-4;
+  }
+
+  .prose-block h2 {
+    @apply mt-10 mb-3 text-xl font-bold text-ink sm:text-2xl;
+  }
+
+  .prose-block h3 {
+    @apply mt-8 mb-2 text-lg font-bold text-ink;
+  }
+
+  .prose-block ul,
+  .prose-block ol {
+    @apply mb-5 space-y-2 ps-6;
+  }
+
+  .prose-block ul {
+    @apply list-disc marker:text-gold-600;
+  }
+
+  .prose-block ol {
+    @apply list-decimal marker:font-bold marker:text-gold-700;
+  }
+}
