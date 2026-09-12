@@ -19,8 +19,8 @@ export function WorkPanelMedia({ item, sizes }: { item: GalleryItem; sizes: stri
   );
 }
 
-/** A strip is about a third of the row at rest and roughly 60% while hovered. */
-export const panelSizes = "(min-width: 1024px) 680px, (min-width: 480px) 48vw, 92vw";
+/** Four tiles per row on desktop, three on tablet, two on phones. */
+export const panelSizes = "(min-width: 1024px) 300px, (min-width: 640px) 33vw, 48vw";
 
 /** Split the photos into rows, so each row is its own group of expanding strips. */
 export function chunk<T>(list: T[], size: number): T[][] {

@@ -48,7 +48,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
           <div className="mt-10 text-center">
             <Link href={pageHref(locale, "services")} className="btn btn-ghost">
-              {c.services.title}
+              {ui.allServices}
               <ArrowIcon className="rtl:rotate-180" />
             </Link>
           </div>
@@ -73,7 +73,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             <p className="lead mx-auto mt-5">{h.work.body}</p>
           </div>
           <div className="mt-12">
-            <GalleryTiles items={h.work.items} href={pageHref(locale, "gallery")} />
+            <GalleryTiles items={h.work.items.slice(0, 8)} href={pageHref(locale, "gallery")} />
           </div>
           <div className="mt-10 text-center">
             <Link href={pageHref(locale, "gallery")} className="btn btn-gold">

@@ -67,6 +67,7 @@ export type Ui = {
   serviceArea: string;
   readMore: string;
   seeAllWork: string;
+  allServices: string;
   latestPosts: string;
   playVideo: string;
   gallery: { open: string; close: string; prev: string; next: string; counter: string };

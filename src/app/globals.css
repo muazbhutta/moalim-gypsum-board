@@ -160,59 +160,35 @@
 }
 
 /* ---------------------------------------------------------------------------
-   Work panels ("اكتشف أعمالنا")
-   The old site laid these out as a mosaic: four or five photos per row with
-   mixed heights (tall 465-500px panels next to short 200-220px ones), square
-   corners, and the caption hidden until hover, when it slides into the middle
-   of the photo over a #00000096 veil. Reproduced here, heights scaled down on
-   smaller screens. Panel height comes from --h, set per photo.
+   Work grid ("اكتشف أعمالنا")
+   Equal tiles on an aligned grid. The photos come from phones and renders in
+   mixed shapes, so one portrait ratio with object-cover keeps the wall tidy.
+   Captions always show over a gradient, so no tile is ever a blank block.
 --------------------------------------------------------------------------- */
-:root {
-  --work-scale: 0.5;
-}
-
-@media (min-width: 640px) {
-  :root {
-    --work-scale: 0.62;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --work-scale: 0.82;
-  }
-}
-
-@media (min-width: 1280px) {
-  :root {
-    --work-scale: 1;
-  }
-}
-
 @layer components {
-  .work-row {
+  .work-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.6rem;
-    align-items: start;
   }
 
   @media (min-width: 640px) {
-    .work-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
+    .work-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
     }
+  }
 
-    .work-row > li {
-      flex: 1 1 0%;
-      min-width: 0;
+  @media (min-width: 1024px) {
+    .work-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
     }
   }
 
   .work-panel {
-    @apply relative block w-full overflow-hidden bg-gold-100;
-    height: max(140px, calc(var(--h, 440px) * var(--work-scale)));
+    @apply relative block w-full overflow-hidden rounded-xl bg-gold-100;
+    aspect-ratio: 4 / 5;
   }
 
   .work-panel__img {
@@ -222,70 +198,47 @@
 
   .work-panel:hover .work-panel__img,
   .work-panel:focus-visible .work-panel__img {
-    transform: scale(1.04);
+    transform: scale(1.05);
   }
 
-  /* Veil: clear at rest, dark on hover — the old site used #00000096. */
+  /* Gradient keeps the caption legible on any photo and deepens on hover. */
   .work-panel__veil {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background-color: rgb(0 0 0 / 0);
-    transition: background-color 0.4s ease;
+    background: linear-gradient(to top, rgb(0 0 0 / 0.72) 0%, rgb(0 0 0 / 0.18) 45%, rgb(0 0 0 / 0) 72%);
+    transition: opacity 0.3s ease;
   }
 
   .work-panel:hover .work-panel__veil,
   .work-panel:focus-visible .work-panel__veil {
-    background-color: rgb(0 0 0 / 0.59);
+    opacity: 0.85;
   }
 
   .work-panel__title {
     position: absolute;
-    inset: 0;
+    inset-inline: 0;
+    bottom: 0;
     z-index: 2;
-    display: grid;
-    place-items: center;
-    padding: 1rem;
+    padding: 0.7rem 0.85rem;
     color: #fff;
-    font-size: clamp(1.05rem, 1.9vw, 2rem);
-    font-weight: 500;
+    font-size: 0.875rem;
+    font-weight: 700;
     line-height: 1.4;
-    text-align: center;
-    text-wrap: balance;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-3.75rem);
-    transition: opacity 0.3s ease 0.15s, transform 0.3s ease 0.15s, visibility 0.3s 0.15s;
+    text-align: start;
+    text-shadow: 0 1px 10px rgb(0 0 0 / 0.5);
   }
 
-  .work-panel:hover .work-panel__title,
-  .work-panel:focus-visible .work-panel__title {
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-  }
-
-  /* Touch screens have no hover, so captions stay readable there. */
-  @media (hover: none) {
-    .work-panel__veil {
-      background: linear-gradient(to top, rgb(0 0 0 / 0.75) 0%, rgb(0 0 0 / 0.2) 45%, rgb(0 0 0 / 0) 75%);
-    }
-
+  @media (min-width: 640px) {
     .work-panel__title {
-      place-items: end start;
+      padding: 0.85rem 1rem;
       font-size: 0.95rem;
-      font-weight: 700;
-      opacity: 1;
-      visibility: visible;
-      text-align: start;
-      transform: none;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .work-panel__img,
-    .work-panel__veil,
-    .work-panel__title {
+    .work-panel__veil {
       transition: none;
     }
   }
