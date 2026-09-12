@@ -1,220 +1,207 @@
-# معلم جبس بورد مكة — website
+<div align="center">
 
-The website for **Gypsum Board Master Makkah** (moalim-gypsumboard-makkah.com).
-Arabic is the main language at `/`; English is at `/en`.
+# 🏛️ معلم جبس بورد مكة
 
-Built with Next.js, TypeScript and Tailwind CSS. There is no database and no CMS: all text lives in
-plain files under `src/content/`, and all photos and videos live in `public/media/`.
+**Gypsum Board Master Makkah — a bilingual (Arabic / English) website for a gypsum board and interior decoration business in Makkah, Saudi Arabia.**
+
+[![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-A31F34?style=flat-square)](#-license)
+[![RTL Support](https://img.shields.io/badge/RTL-Arabic_first-0C4A3A?style=flat-square)](#-features)
+[![No Database](https://img.shields.io/badge/Database-none-6B7280?style=flat-square)](#-how-it-works)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](#-contributing)
+
+</div>
 
 ---
 
-## 1. Run it on your computer
+## 📖 What this project is
 
-You need **Node.js 20 or newer** (download from nodejs.org).
+A fast, fully static marketing website for a construction trade business. It exists to do one thing well: turn a Google search for *معلم جبس بورد مكة* into a phone call or a WhatsApp message.
+
+The site was rebuilt from scratch to replace a WordPress/Elementor site the business owner no longer had access to. All of the client's own content — text, project photos, videos, phone numbers — was carried over, but none of the original theme code. Every component here is written from zero, so the client fully owns the result.
+
+**Live site:** [moalim-gypsumboard-makkah.com](https://moalim-gypsumboard-makkah.com)
+
+---
+
+## ✨ Features
+
+| | |
+|---|---|
+| 🌍 **Bilingual** | Arabic at `/` (RTL), English at `/en` (LTR), with correct `hreflang` pairs |
+| 🔍 **SEO built in** | Per-page metadata, canonicals, Open Graph, auto-generated `sitemap.xml` and `robots.txt` |
+| 📊 **Structured data** | JSON-LD for `LocalBusiness`, `Service`, `FAQPage`, `VideoObject` and `BreadcrumbList` |
+| 📱 **Mobile first** | Sticky call + WhatsApp bar, tested from 360px up |
+| 💬 **No-backend contact form** | Composes a pre-filled WhatsApp message — nothing to host, nothing to leak |
+| 🎞️ **Gallery & lightbox** | Project photos and videos with keyboard navigation and RTL-aware arrows |
+| 🎬 **Motion** | Scroll-triggered reveals and hover transitions, all disabled under `prefers-reduced-motion` |
+| ↩️ **301 redirects** | Every old WordPress URL and image path is mapped, so search rankings transfer |
+| 🗂️ **No CMS, no database** | Content lives in typed TypeScript files — nothing to patch, nothing to hack |
+
+---
+
+## 🧰 Tech stack
+
+- **[Next.js](https://nextjs.org/)** — App Router, static rendering
+- **[TypeScript](https://www.typescriptlang.org/)** — content files are typed, so a missing field is a build error, not a broken page
+- **[Tailwind CSS](https://tailwindcss.com/)** — with logical properties throughout for RTL/LTR
+- **`next/image`** — automatic resizing and modern formats
+- **`next/font`** — self-hosted Arabic fonts, subset to Arabic + Latin
+- **[Vercel](https://vercel.com/)** — hosting, CDN and TLS
+
+---
+
+## 📁 Directory structure
+
+```
+moalim-gypsum-board/
+├── public/
+│   ├── media/
+│   │   ├── images/              # project photos
+│   │   └── videos/              # project videos
+│   └── og/                      # 1200×630 link-preview images
+├── scrape/                      # notes from the old-site migration (not shipped)
+│   └── PHASE1-REPORT.md
+├── src/
+│   ├── app/
+│   │   ├── (ar)/                # Arabic pages        →  /
+│   │   ├── (en)/en/             # English pages       →  /en
+│   │   ├── sitemap.ts           # sitemap.xml, both languages
+│   │   ├── robots.ts            # robots.txt
+│   │   └── layout.tsx           # <html lang dir>, fonts, JSON-LD
+│   ├── components/              # Header, Hero, GalleryGrid, ContactForm, Footer …
+│   ├── content/
+│   │   ├── site.ts              # ☎️  phone, WhatsApp, email, social links
+│   │   ├── ar.ts                # 🇸🇦 every word of Arabic copy
+│   │   ├── en.ts                # 🇬🇧 every word of English copy
+│   │   └── media.ts             # image/video registry with pixel dimensions
+│   └── lib/
+│       ├── jsonld.ts            # Google structured data
+│       └── seo.ts               # metadata helpers, OG image map
+├── redirects.config.ts          # 301s from the old WordPress URLs
+├── next.config.ts
+├── tailwind.config.ts
+├── tsconfig.json
+├── package.json
+└── README.md
+```
+
+---
+
+## ⚙️ How it works
+
+There is no database, no admin panel and no API to call. At build time Next.js reads the content files, renders every page to static HTML, and Vercel serves those files from its CDN.
+
+```
+src/content/*.ts  ──►  next build  ──►  static HTML + optimised images  ──►  Vercel CDN
+```
+
+Two consequences worth knowing:
+
+1. **Editing content means editing a file.** Change `ar.ts`, commit, push — the site rebuilds and goes live in about a minute.
+2. **There is nothing to attack.** No login, no form endpoint, no database. The contact form opens WhatsApp on the visitor's own device.
+
+Language handling is route-based, not cookie-based: `/` renders the Arabic tree with `dir="rtl"`, `/en` renders the English tree with `dir="ltr"`, and both pull from the same components with a different content object.
+
+---
+
+## 🚀 Getting started
+
+**Requirements:** Node.js 20 or newer.
 
 ```bash
+# 1. Clone
+git clone https://github.com/<your-username>/moalim-gypsum-board.git
+cd moalim-gypsum-board
+
+# 2. Install
 npm install
+
+# 3. Run
 npm run dev
 ```
 
-Open http://localhost:3000 (Arabic) or http://localhost:3000/en (English).
-The page reloads by itself when you save a file.
+Open <http://localhost:3000> for Arabic or <http://localhost:3000/en> for English. The page reloads as you save.
 
-To check that everything builds exactly like it will on Vercel:
-
-```bash
-npm run build
-npm start
-```
+No `.env` file is needed. There are no secrets in this project.
 
 ---
 
-## 2. Change the phone number, WhatsApp, email or social links
+## 📜 Scripts
 
-Open **`src/content/site.ts`**. Everything is in one place:
+| Script | What it does |
+|---|---|
+| `npm run dev` | Start the dev server on port 3000 with hot reload |
+| `npm run build` | Production build — exactly what Vercel runs |
+| `npm start` | Serve the production build locally (run `build` first) |
+| `npm run lint` | ESLint across the project |
+| `npm run typecheck` | TypeScript with no emit — catches broken content files |
 
-```ts
-phone:    { display: "059 542 8955", tel: "+966595428955" },
-phone2:   { display: "" },                  // second number; empty = hidden
-whatsapp: "966595428955",                   // country code + number, no "+" or leading 0
-email:    "",                               // empty = no email shown anywhere
-social:   { facebook: "…", tiktok: "…" },   // links only; the icons were removed
-```
-
-The change appears everywhere automatically — header, footer, contact page, the sticky call bar on
-phones, the WhatsApp contact form, and Google's structured data.
-
-**Adding a number or an email back:** fill in `phone2` (for example `"0551234567"`) or `email`, and
-it appears automatically in the footer, the contact panel, the closing band and the business data
-search engines read. Leave either empty and it is hidden everywhere, with no dead link left behind.
-
-**Note:** the phone and WhatsApp are the same number (059 542 8955). If WhatsApp ever moves to a
-different line, change `whatsapp` on its own — it is independent of `phone`.
+Before pushing anything, `npm run build` is the one that matters: if it passes locally, it will pass on Vercel.
 
 ---
 
-## 3. Change any text
+## 🛠️ Using this project for your own business
 
-- Arabic text: **`src/content/ar.ts`**
-- English text: **`src/content/en.ts`**
+This is a general-purpose template for a local trade or service business. To make it yours:
 
-Both files have the same shape, page by page (`home`, `about`, `services`, `gallery`, `faq`,
-`contact`, `blog`, `privacy`, `terms`, `posts`). Each page also has an `seo` block with the title and
-description Google shows in search results — keep titles under ~60 characters and descriptions
-under ~155.
+1. **Contact details** — edit `src/content/site.ts`. Phone, WhatsApp, email and social links live in one place and propagate to the header, footer, contact page, sticky mobile bar and structured data. Leave a field empty and it disappears everywhere, with no dead link left behind.
+2. **Copy** — rewrite `src/content/ar.ts` and `src/content/en.ts`. Both files have the same shape, page by page. Each page carries an `seo` block; keep titles under ~60 characters and descriptions under ~155.
+3. **Photos** — drop files into `public/media/images/` using short dash-separated English names, register them in `src/content/media.ts` with their real pixel width and height, then reference the key from the gallery list.
+4. **Business data** — update `src/lib/jsonld.ts` with the real business name, area served and opening hours. Do not invent a street address or reviews; Google penalises fabricated business data.
+5. **Domain** — replace the site URL in `src/lib/seo.ts` and clear out `redirects.config.ts`, which is specific to this migration.
+6. **Deploy** — push to GitHub, import the repo at [vercel.com](https://vercel.com/new), accept the detected settings, deploy. Then add your domain under **Settings → Domains** and create the DNS records Vercel shows you.
 
----
-
-## 4. Add a photo to the gallery
-
-1. **Copy the photo** into `public/media/images/`. Use a short English file name with dashes, no
-   spaces or Arabic letters, e.g. `gallery-majlis-ceiling.jpg`.
-2. **Find its size in pixels.** On Windows: right-click the file → *Properties* → *Details*
-   (Width and Height). On Mac: open it in Preview → *Tools* → *Show Inspector*.
-3. **Register it** in `src/content/media.ts`, inside `images = { … }`:
-
-   ```ts
-   'gallery-majlis-ceiling': { src: '/media/images/gallery-majlis-ceiling.jpg', original: '/media/images/gallery-majlis-ceiling.jpg', width: 1080, height: 1440 },
-   ```
-
-4. **Show it on the gallery page** by adding a line to `gallery.items` in **both** `ar.ts` and `en.ts`:
-
-   ```ts
-   { image: "gallery-majlis-ceiling", title: "ديكور مجلس", alt: "مجلس بسقف جبس بورد وإضاءة مخفية" },
-   ```
-
-   `alt` describes the photo for Google and for blind visitors — write what is in the picture.
-   To also show it on the home page, add the same line to `home.work.items`.
-
-Photos are resized and converted automatically for each screen size, so you can upload the original
-phone photo (ideally under ~2 MB).
+The Arabic/RTL groundwork is the part worth reusing: logical CSS properties, font subsetting, `hreflang` pairing and RTL-aware carousel and lightbox controls are all already handled.
 
 ---
 
-## 5. Add a blog post
+## 🤝 Contributing
 
-1. Pick a short English web address for it, e.g. `gypsum-ceiling-prices-makkah`.
-2. In **`src/content/ar.ts`**, add a new entry at the **top** of the `posts: [ … ]` list (copy an
-   existing post and edit it):
-
-   ```ts
-   {
-     slug: "gypsum-ceiling-prices-makkah",
-     datePublished: "2026-10-01",
-     dateModified: "2026-10-01",
-     title: "…",                                  // the heading on the page
-     seo: { title: "…", description: "…" },       // what Google shows
-     pic: { image: "gallery-reception-hall", alt: "…" },  // any image key from media.ts
-     excerpt: "…",                                // short summary on the blog list
-     blocks: [
-       { type: "p", text: "A paragraph…" },
-       { type: "h2", text: "A sub-heading" },
-       { type: "ul", items: ["point one", { label: "Bold part", text: "rest of the point" }] },
-       { type: "img", pic: { image: "gallery-tv-wall-decor", alt: "…" } },
-     ],
-   },
-   ```
-
-3. Add the English version to **`src/content/en.ts`** with the **same `slug`**.
-4. The post appears on `/blog` and `/en/blog`, gets its own page at `/blog/<slug>`, and is added to
-   the sitemap automatically. (Optional: to give it its own sharing image, put a 1200×630 JPG in
-   `public/og/` and add it to `ogImages` in `src/lib/seo.ts`; otherwise the home image is used.)
+Issues and pull requests are welcome. For anything larger than a typo, open an issue first so we can agree on the approach. Please run `npm run lint` and `npm run build` before submitting.
 
 ---
 
-## 6. Publishing changes
+## 📄 License
 
-Once the site is connected to Vercel (below), every change you push to GitHub goes live by itself
-within about a minute:
-
-```bash
-git add .
-git commit -m "Add majlis photo to gallery"
-git push
-```
-
----
-
-## 7. First-time deployment (GitHub → Vercel → your domain)
-
-### a) Put the code on GitHub
-
-1. Create a free account at github.com and click **New repository**. Name it
-   `moalim-gypsumboard-makkah`, choose **Private**, and do **not** add a README or .gitignore.
-2. In this folder run:
-
-   ```bash
-   git init -b main
-   git add .
-   git commit -m "Initial website"
-   git remote add origin https://github.com/<your-username>/moalim-gypsumboard-makkah.git
-   git push -u origin main
-   ```
-
-### b) Import into Vercel
-
-1. Sign in at vercel.com with the GitHub account.
-2. **Add New… → Project → Import** the `moalim-gypsumboard-makkah` repository.
-3. Leave every setting as it is (Vercel detects Next.js) and click **Deploy**. No environment
-   variables are needed.
-4. You get a working address like `moalim-gypsumboard-makkah.vercel.app`. Check it.
-
-### c) Connect moalim-gypsumboard-makkah.com (DNS at Cloudflare)
-
-1. In Vercel: **Project → Settings → Domains → Add** `moalim-gypsumboard-makkah.com`.
-   When asked, also add `www.moalim-gypsumboard-makkah.com` and choose to **redirect www to the main
-   domain**.
-2. Vercel then shows the exact DNS records to create. In Cloudflare: **your domain → DNS → Records →
-   Add record**, and create them. They normally look like this:
-
-   | Type  | Name  | Content                  | Proxy status |
-   |-------|-------|--------------------------|--------------|
-   | A     | `@`   | `76.76.21.21`            | **DNS only** (grey cloud) |
-   | CNAME | `www` | `cname.vercel-dns.com`   | **DNS only** (grey cloud) |
-
-   If Vercel shows different values (it sometimes gives a project-specific CNAME or a newer IP),
-   use **exactly what Vercel shows** — those take priority over this table.
-3. **Delete any old A, AAAA or CNAME records** for `@` and `www` that point somewhere else.
-4. Keep the records on **DNS only** (grey cloud). Vercel issues the HTTPS certificate itself and
-   already serves the site from a global CDN. (If you ever switch the orange cloud on, set
-   Cloudflare **SSL/TLS → Full (strict)**, otherwise you will get redirect loops.)
-5. If the domain has **CAA** records, add one allowing `letsencrypt.org`, or the certificate can't
-   be issued.
-6. Wait a few minutes; Vercel's Domains page turns green ("Valid Configuration"). Done.
-
-### d) After launch
-
-- Add the site to **Google Search Console** (search.google.com/search-console → Domain property →
-  verify with the TXT record it gives you, in Cloudflare DNS) and submit
-  `https://moalim-gypsumboard-makkah.com/sitemap.xml`.
-- If you ever regain control of the old domain `moalam-gypsumboard-makkah.com`, add it to the same
-  Vercel project as a **redirect to moalim-gypsumboard-makkah.com**. All old page and image
-  addresses are already mapped (see `redirects.config.ts`), so Google transfers the old rankings.
-
----
-
-## Where things are
+Released under the **MIT License**.
 
 ```
-src/content/site.ts        phone, WhatsApp, email, social links
-src/content/ar.ts          all Arabic text
-src/content/en.ts          all English text
-src/content/media.ts       list of images/videos with their pixel sizes
-src/components/            the building blocks (Header, Hero, GalleryGrid, ContactForm, …)
-src/app/(ar)/              Arabic pages       →  /
-src/app/(en)/en/           English pages      →  /en
-src/app/sitemap.ts         sitemap.xml (both languages)
-src/lib/jsonld.ts          Google structured data (business, services, FAQ, videos, breadcrumbs)
-redirects.config.ts        301 redirects from the old WordPress addresses
-public/media/              photos and videos
-public/og/                 images used when a link is shared on WhatsApp / social media
-scrape/                    notes and scripts from copying the old site (not part of the website)
+MIT License
+
+Copyright (c) 2026 Muhammad Muaz Bhutta
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
 
-## Things to confirm with the client
+> ⚠️ The MIT license covers **the code only**. The photographs, videos, business name and written
+> copy in `public/media/` and `src/content/` belong to the business and are **not** covered — replace
+> them with your own before reusing this project.
 
-- **Photo rights.** Several photos on the old site look like they came from the internet (stock
-  renders, screenshots, another person's camera watermark). They are kept for now but listed in
-  `scrape/PHASE1-REPORT.md`. Replace them with the client's own project photos when possible.
-- **Opening hours** and a **street address** were never published, so they are left out of Google's
-  business data. Add them to `src/lib/jsonld.ts` if the client wants them shown.
+---
+
+<div align="center">
+
+Built by **[Muhammad Muaz Bhutta](https://github.com/)** 🇵🇰 in Saudi Arabia 🇸🇦
+
+</div>
