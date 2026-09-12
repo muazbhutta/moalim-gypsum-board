@@ -23,7 +23,7 @@ export function SplitSection({
   return (
     <section className={tone === "gold" ? "bg-gold-50" : "bg-white"}>
       <div className="container-page grid items-center gap-10 py-14 sm:py-20 md:grid-cols-2 lg:gap-14">
-        <div className={flip ? "md:order-2" : ""}>
+        <div data-reveal className={flip ? "md:order-2" : ""}>
           <h2 className="text-3xl font-bold text-ink sm:text-4xl">{title}</h2>
           <div className="mt-5 space-y-4 text-lg leading-8 text-ink-soft">
             {paragraphs.map((p) => (
@@ -38,6 +38,7 @@ export function SplitSection({
           width={img.width}
           height={img.height}
           sizes="(min-width: 1152px) 540px, (min-width: 768px) 45vw, 92vw"
+          data-reveal="zoom"
           className="aspect-[4/3] h-auto w-full rounded-2xl object-cover shadow-lg"
         />
       </div>

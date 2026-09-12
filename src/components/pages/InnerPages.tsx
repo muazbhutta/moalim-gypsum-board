@@ -173,7 +173,10 @@ function PostCard({ locale, slug, title, excerpt, image, alt, readMore, heading 
   const Heading = heading;
   const href = postHref(locale, slug);
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-white shadow-sm sm:flex-row">
+    <article
+      data-reveal
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:flex-row"
+    >
       <Image src={img.src} alt={alt} width={img.width} height={img.height} sizes="(min-width: 640px) 280px, 92vw" className="aspect-[4/3] h-auto w-full object-cover sm:w-72" />
       <div className="flex flex-1 flex-col p-6">
         <Heading className="text-xl font-bold text-ink">

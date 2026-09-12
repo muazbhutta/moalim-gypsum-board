@@ -20,7 +20,7 @@ export function StickyCallBar({ ui }: { ui: Ui }) {
       <div className="fixed end-6 bottom-6 z-50 hidden flex-col gap-3 md:flex">
         <a
           href={`tel:${site.phone.tel}`}
-          className="grid size-14 place-items-center rounded-full bg-ink text-white shadow-lg ring-2 ring-white hover:bg-ink-soft"
+          className="grid size-14 place-items-center rounded-full bg-ink text-white shadow-lg ring-2 ring-white transition-transform duration-200 hover:scale-110 hover:bg-ink-soft"
         >
           <PhoneIcon width={26} height={26} />
           <span className="sr-only">{ui.callNow}</span>
@@ -29,7 +29,7 @@ export function StickyCallBar({ ui }: { ui: Ui }) {
           href={whatsappLink()}
           target="_blank"
           rel="noopener noreferrer"
-          className="grid size-14 place-items-center rounded-full bg-wa text-white shadow-lg ring-2 ring-white hover:bg-wa-dark"
+          className="grid size-14 place-items-center rounded-full bg-wa text-white shadow-lg ring-2 ring-white transition-transform duration-200 hover:scale-110 hover:bg-wa-dark"
         >
           <WhatsAppIcon width={28} height={28} />
           <span className="sr-only">{ui.whatsappUs}</span>

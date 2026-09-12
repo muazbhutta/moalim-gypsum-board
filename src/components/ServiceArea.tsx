@@ -5,7 +5,7 @@ import { MapPinIcon } from "./Icons";
 /** Replaces the old embedded Google Map with a plain link — nothing third-party loads on the page. */
 export function ServiceArea({ title, body, ui }: { title: string; body: string; ui: Ui }) {
   return (
-    <div className="flex flex-col items-start gap-4 rounded-2xl border border-line bg-white p-6 sm:flex-row sm:items-center sm:p-8">
+    <div data-reveal className="flex flex-col items-start gap-4 rounded-2xl border border-line bg-white p-6 sm:flex-row sm:items-center sm:p-8">
       <span className="grid size-14 shrink-0 place-items-center rounded-full bg-gold-100 text-gold-700">
         <MapPinIcon width={28} height={28} />
       </span>

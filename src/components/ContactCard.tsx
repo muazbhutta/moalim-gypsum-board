@@ -31,8 +31,8 @@ export function ContactList({ ui, tone = "light" }: { ui: Ui; tone?: "light" | "
 export function SocialLinks({ ui, tone = "light" }: { ui: Ui; tone?: "light" | "dark" }) {
   const cls =
     tone === "dark"
-      ? "bg-white/10 text-white hover:bg-gold-500 hover:text-ink"
-      : "bg-gold-100 text-ink hover:bg-gold-500 hover:text-white";
+      ? "bg-white/10 text-white transition-colors hover:bg-gold-500 hover:text-ink"
+      : "bg-gold-100 text-ink transition-colors hover:bg-gold-500 hover:text-white";
   return (
     <ul className="flex gap-3">
       <li>
@@ -54,7 +54,7 @@ export function SocialLinks({ ui, tone = "light" }: { ui: Ui; tone?: "light" | "
 /** "Contact us today!" panel: text, phone(s), email, socials and the WhatsApp/Call pair. */
 export function ContactCard({ title, body, ui, as: Heading = "h2" }: { title: string; body: string; ui: Ui; as?: "h2" | "h3" }) {
   return (
-    <div className="rounded-2xl bg-gold-50 p-6 ring-1 ring-gold-200 sm:p-8">
+    <div data-reveal className="rounded-2xl bg-gold-50 p-6 ring-1 ring-gold-200 sm:p-8">
       <Heading className="text-2xl font-bold text-ink sm:text-3xl">{title}</Heading>
       <p className="mt-4 text-lg leading-8 text-ink-soft">{body}</p>
       <div className="mt-6">

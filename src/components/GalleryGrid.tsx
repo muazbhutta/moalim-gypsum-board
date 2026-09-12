@@ -5,10 +5,15 @@ import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { images } from "@/content/media";
 import type { GalleryItem } from "@/content/types";
 import { ArrowIcon, CloseIcon } from "./Icons";
+import { panelSizes, WorkPanelMedia } from "./WorkPanelMedia";
 
 type Labels = { open: string; close: string; prev: string; next: string; counter: string };
 
-/** Photo grid with captions; each photo opens in an accessible <dialog> lightbox (Esc, arrows, backdrop click). */
+/**
+ * Work panels in the old site's style — caption revealed on hover over a dark
+ * veil — where each panel also opens the photo full size in an accessible
+ * <dialog> (Esc, arrow keys, backdrop click).
+ */
 export function GalleryGrid({ items, labels }: { items: GalleryItem[]; labels: Labels }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const [index, setIndex] = useState<number | null>(null);
@@ -23,42 +28,24 @@ export function GalleryGrid({ items, labels }: { items: GalleryItem[]; labels: L
   const onKeyDown = (e: KeyboardEvent<HTMLDialogElement>) => {
     if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
     const rtl = document.documentElement.dir === "rtl";
-    const forward = e.key === (rtl ? "ArrowLeft" : "ArrowRight");
-    step(forward ? 1 : -1);
+    step(e.key === (rtl ? "ArrowLeft" : "ArrowRight") ? 1 : -1);
   };
 
   const current = index === null ? null : items[index];
   const currentImg = current ? images[current.image] : null;
-  const navBtn = "inline-flex size-11 items-center justify-center rounded-full bg-white/15 text-white hover:bg-white/25";
+  const navBtn = "inline-flex size-11 items-center justify-center rounded-full bg-white/15 text-white transition-colors hover:bg-white/25";
 
   return (
     <>
-      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
-        {items.map((item, i) => {
-          const img = images[item.image];
-          return (
-            <li key={item.image}>
-              <button
-                type="button"
-                onClick={() => setIndex(i)}
-                aria-haspopup="dialog"
-                className="group relative block aspect-[3/4] w-full overflow-hidden rounded-xl bg-gold-100 text-start"
-              >
-                <Image
-                  src={img.src}
-                  alt={item.alt}
-                  fill
-                  sizes="(min-width: 1152px) 270px, (min-width: 1024px) 24vw, (min-width: 640px) 32vw, 48vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-3 pt-10 pb-3 text-sm font-bold text-white sm:text-base">
-                  {item.title}
-                </span>
-                <span className="sr-only">{` — ${labels.open}`}</span>
-              </button>
-            </li>
-          );
-        })}
+      <ul className="grid gap-4 sm:grid-cols-2 sm:gap-5">
+        {items.map((item, i) => (
+          <li key={item.image} data-reveal>
+            <button type="button" onClick={() => setIndex(i)} aria-haspopup="dialog" className="work-panel text-start">
+              <WorkPanelMedia item={item} sizes={panelSizes} />
+              <span className="sr-only">{` — ${labels.open}`}</span>
+            </button>
+          </li>
+        ))}
       </ul>
 
       <dialog

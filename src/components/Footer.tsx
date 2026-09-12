@@ -10,7 +10,7 @@ export function Footer({ locale, ui }: { locale: Locale; ui: Ui }) {
   const legal = (["privacy", "terms"] as const).map((k) => ({ href: pageHref(locale, k), label: ui.legalNav[k] }));
   const year = new Date().getFullYear();
   const heading = "text-lg font-bold text-gold-300";
-  const link = "text-white/85 hover:text-gold-300";
+  const link = "text-white/85 transition-colors hover:text-gold-300";
 
   return (
     <footer className="bg-ink pb-20 text-white/85 md:pb-0">

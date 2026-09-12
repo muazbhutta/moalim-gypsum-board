@@ -16,8 +16,12 @@ export function ServiceCard({
 }) {
   const img = images[service.pic.image];
   return (
-    <article id={service.id} className="flex scroll-mt-24 flex-col overflow-hidden rounded-2xl border border-line bg-white shadow-sm">
-      <Image src={img.src} alt={service.pic.alt} width={img.width} height={img.height} sizes={sizes} className="aspect-[7/5] h-auto w-full object-cover" />
+    <article
+      id={service.id}
+      data-reveal
+      className="group flex scroll-mt-24 flex-col overflow-hidden rounded-2xl border border-line bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+    >
+      <Image src={img.src} alt={service.pic.alt} width={img.width} height={img.height} sizes={sizes} className="aspect-[7/5] h-auto w-full object-cover transition-transform duration-500 group-hover:scale-105" />
       <div className="flex flex-1 flex-col p-6">
         <Heading className="text-xl font-bold text-ink">{service.title}</Heading>
         {children ?? <p className="mt-3 leading-7 text-ink-soft">{service.body}</p>}

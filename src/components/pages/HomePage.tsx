@@ -28,7 +28,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
       <section aria-labelledby="services-title" className="bg-white">
         <div className="container-page py-16 sm:py-20">
-          <div className="mx-auto max-w-3xl text-center">
+          <div data-reveal className="mx-auto max-w-3xl text-center">
             <h2 id="services-title" className="text-3xl font-bold text-ink sm:text-4xl">
               {h.servicesIntro.title}
             </h2>
@@ -53,7 +53,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       </section>
 
       <section aria-labelledby="team-title" className="bg-ink text-white">
-        <div className="container-page py-14 text-center sm:py-16">
+        <div data-reveal className="container-page py-14 text-center sm:py-16">
           <h2 id="team-title" className="text-3xl font-bold text-gold-300">
             {h.team.title}
           </h2>
@@ -63,7 +63,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
       <section aria-labelledby="work-title" className="bg-gold-50">
         <div className="container-page py-16 sm:py-20">
-          <div className="mx-auto max-w-3xl text-center">
+          <div data-reveal className="mx-auto max-w-3xl text-center">
             <h2 id="work-title" className="text-3xl font-bold text-ink sm:text-4xl">
               {h.work.title}
             </h2>

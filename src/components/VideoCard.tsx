@@ -16,7 +16,7 @@ export function VideoCard({ item, playLabel, unsupported, as: Heading = "h3" }: 
   const poster = images[`poster-${item.video}` as ImageKey];
 
   return (
-    <figure className="overflow-hidden rounded-2xl border border-line bg-white shadow-sm">
+    <figure data-reveal className="overflow-hidden rounded-2xl border border-line bg-white shadow-sm">
       <div className="relative aspect-[9/16] bg-ink">
         {playing ? (
           <video

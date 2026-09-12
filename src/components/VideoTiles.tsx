@@ -15,15 +15,15 @@ export function VideoTiles({ items, href, playLabel }: { items: VideoItem[]; hre
       {items.map((item) => {
         const poster = images[`poster-${item.video}` as ImageKey];
         return (
-          <li key={item.video}>
-            <Link href={href} className="group block overflow-hidden rounded-2xl border border-line bg-white shadow-sm">
+          <li key={item.video} data-reveal>
+            <Link href={href} className="group block overflow-hidden rounded-2xl border border-line bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
               <span className="relative block aspect-[9/16] bg-ink">
                 <Image
                   src={poster.src}
                   alt=""
                   fill
                   sizes="(min-width: 1152px) 270px, (min-width: 640px) 45vw, 92vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <span className="absolute inset-0 grid place-items-center bg-black/10">
                   <span className="grid size-16 place-items-center rounded-full bg-white/95 text-ink shadow-lg transition-transform group-hover:scale-110">
