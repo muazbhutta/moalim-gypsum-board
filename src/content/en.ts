@@ -454,7 +454,7 @@ export const en: SiteContent = {
     seo: {
       title: "Contact Gypsum Board Master Makkah | Call or WhatsApp",
       description:
-        "Contact our gypsum board team in Makkah for a free consultation or a quote for gypsum board, plain gypsum or cement board work. Call us on 0595428955.",
+        "Contact our gypsum board team in Makkah for a free consultation or a quote for gypsum board, plain gypsum or cement board work. Call or WhatsApp 0595428955.",
     },
     title: "Contact us",
     intro:

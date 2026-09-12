@@ -15,7 +15,8 @@ export const site = {
     display: "",
   },
 
-  whatsapp: "966599480178",
+  // Same number as the phone above: both icons reach 059 542 8955.
+  whatsapp: "966595428955",
   // No email address is published. Add one here and it appears in the contact
   // lists and in the business data search engines read.
   email: "",

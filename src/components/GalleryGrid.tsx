@@ -1,17 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 import { images } from "@/content/media";
 import type { GalleryItem } from "@/content/types";
 import { ArrowIcon, CloseIcon } from "./Icons";
-import { chunk, panelSizes, WorkPanelMedia } from "./WorkPanelMedia";
+import { mosaicRows } from "./WorkMosaic";
+import { panelSizes, WorkPanelMedia } from "./WorkPanelMedia";
 
 type Labels = { open: string; close: string; prev: string; next: string; counter: string };
 
 /**
- * Rows of photo strips in the old site's style — each expands on hover and shows
- * its caption over a dark veil — where clicking one also opens the photo full
+ * The gallery mosaic: same rows as the home page, but each photo opens full
  * size in an accessible <dialog> (Esc, arrow keys, backdrop click).
  */
 export function GalleryGrid({ items, labels }: { items: GalleryItem[]; labels: Labels }) {
@@ -37,16 +37,17 @@ export function GalleryGrid({ items, labels }: { items: GalleryItem[]; labels: L
 
   return (
     <>
-      <div className="space-y-3 sm:space-y-4">
-        {chunk(items, 3).map((row) => (
-          <ul key={row[0].image} className="work-row">
-            {row.map((item) => (
+      <div className="space-y-2.5 sm:space-y-3">
+        {mosaicRows(items).map((row) => (
+          <ul key={row[0].item.image} className="work-row">
+            {row.map(({ item, height }) => (
               <li key={item.image} data-reveal>
                 <button
                   type="button"
                   onClick={() => setIndex(items.indexOf(item))}
                   aria-haspopup="dialog"
-                  className="work-panel text-start"
+                  className="work-panel"
+                  style={{ "--h": `${height}px` } as CSSProperties}
                 >
                   <WorkPanelMedia item={item} sizes={panelSizes} />
                   <span className="sr-only">{` — ${labels.open}`}</span>

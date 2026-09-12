@@ -36,7 +36,7 @@ Open **`src/content/site.ts`**. Everything is in one place:
 ```ts
 phone:    { display: "059 542 8955", tel: "+966595428955" },
 phone2:   { display: "" },                  // second number; empty = hidden
-whatsapp: "966599480178",                   // country code + number, no "+" or leading 0
+whatsapp: "966595428955",                   // country code + number, no "+" or leading 0
 email:    "",                               // empty = no email shown anywhere
 social:   { facebook: "…", tiktok: "…" },   // links only; the icons were removed
 ```
@@ -48,8 +48,8 @@ phones, the WhatsApp contact form, and Google's structured data.
 it appears automatically in the footer, the contact panel, the closing band and the business data
 search engines read. Leave either empty and it is hidden everywhere, with no dead link left behind.
 
-**Note:** WhatsApp still points at `966599480178`, which is a different number from the one shown.
-Change `whatsapp` above if the WhatsApp account moves to 059 542 8955.
+**Note:** the phone and WhatsApp are the same number (059 542 8955). If WhatsApp ever moves to a
+different line, change `whatsapp` on its own — it is independent of `phone`.
 
 ---
 
