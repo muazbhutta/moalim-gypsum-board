@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Locale } from "@/content/types";
+import type { ListItem, Locale } from "@/content/types";
 import { getContent } from "@/lib/content";
 import { serviceLd, videoLd } from "@/lib/jsonld";
 import { pageHref } from "@/lib/routes";
@@ -14,66 +14,72 @@ import { ServiceCard } from "../ServiceCard";
 import { SplitSection } from "../SplitSection";
 import { VideoTiles } from "../VideoTiles";
 
+const label = (i: ListItem) => (typeof i === "string" ? i : i.label);
+
 export function HomePage({ locale }: { locale: Locale }) {
-  const { ui, home: h, contact } = getContent(locale);
+  const c = getContent(locale);
+  const { ui, home: h, contact } = c;
   const allServices = [...h.plainGypsum, ...h.services, ...h.moreServices];
+  const points = c.services.why.items.slice(0, 3).map(label);
 
   return (
     <>
       <JsonLd data={[...allServices.map((s) => serviceLd(locale, s, "/")), ...h.videos.items.map((v) => videoLd(v.video, v.title, v.description))]} />
 
-      <Hero title={h.hero.title} body={h.hero.body} pic={h.hero.pic} ui={ui} />
-      <SplitSection title={h.intro.title} paragraphs={h.intro.paragraphs} pic={h.intro.pic} ui={ui} />
-      <SplitSection title={h.pakistani.title} paragraphs={[h.pakistani.body]} pic={h.pakistani.pic} ui={ui} flip tone="gold" />
+      <Hero title={h.hero.title} body={h.hero.body} pic={h.hero.pic} ui={ui} points={points} />
+
+      <SplitSection eyebrow={ui.nav.about} title={h.intro.title} paragraphs={h.intro.paragraphs} pic={h.intro.pic} />
+      <SplitSection eyebrow={ui.nav.services} title={h.pakistani.title} paragraphs={[h.pakistani.body]} pic={h.pakistani.pic} flip tone="gold" />
 
       <section aria-labelledby="services-title" className="bg-white">
-        <div className="container-page py-16 sm:py-20">
+        <div className="container-page section">
           <div data-reveal className="mx-auto max-w-3xl text-center">
-            <h2 id="services-title" className="text-3xl font-bold text-ink sm:text-4xl">
+            <p className="eyebrow eyebrow-center">{ui.nav.services}</p>
+            <h2 id="services-title" className="h-section">
               {h.servicesIntro.title}
             </h2>
-            <p className="mt-5 text-lg leading-8 text-ink-soft">{h.servicesIntro.body}</p>
+            <p className="lead mx-auto mt-5">{h.servicesIntro.body}</p>
           </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-2">
-            {h.plainGypsum.map((s) => (
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {allServices.map((s) => (
               <ServiceCard key={s.id} service={s} />
             ))}
           </div>
-          <div className="mt-8 grid gap-8 md:grid-cols-2">
-            {h.services.map((s) => (
-              <ServiceCard key={s.id} service={s} />
-            ))}
-          </div>
-          <div className="mt-8 grid gap-8 md:grid-cols-3">
-            {h.moreServices.map((s) => (
-              <ServiceCard key={s.id} service={s} sizes="(min-width: 1152px) 360px, (min-width: 768px) 30vw, 92vw" />
-            ))}
+
+          <div className="mt-10 text-center">
+            <Link href={pageHref(locale, "services")} className="btn btn-ghost">
+              {c.services.title}
+              <ArrowIcon className="rtl:rotate-180" />
+            </Link>
           </div>
         </div>
       </section>
 
       <section aria-labelledby="team-title" className="bg-ink text-white">
-        <div data-reveal className="container-page py-14 text-center sm:py-16">
-          <h2 id="team-title" className="text-3xl font-bold text-gold-300">
+        <div data-reveal className="container-page section text-center">
+          <p className="eyebrow eyebrow-center text-gold-300">{ui.brand}</p>
+          <h2 id="team-title" className="h-section text-white">
             {h.team.title}
           </h2>
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-white/90">{h.team.body}</p>
+          <p className="lead mx-auto mt-5 text-white/80">{h.team.body}</p>
         </div>
       </section>
 
       <section aria-labelledby="work-title" className="bg-gold-50">
-        <div className="container-page py-16 sm:py-20">
+        <div className="container-page section">
           <div data-reveal className="mx-auto max-w-3xl text-center">
-            <h2 id="work-title" className="text-3xl font-bold text-ink sm:text-4xl">
+            <p className="eyebrow eyebrow-center">{ui.nav.gallery}</p>
+            <h2 id="work-title" className="h-section">
               {h.work.title}
             </h2>
-            <p className="mt-5 text-lg leading-8 text-ink-soft">{h.work.body}</p>
+            <p className="lead mx-auto mt-5">{h.work.body}</p>
           </div>
-          <div className="mt-10">
-            <GalleryTiles items={h.work.items} href={pageHref(locale, "gallery")} />
+          <div className="mt-12">
+            <GalleryTiles items={h.work.items.slice(0, 6)} href={pageHref(locale, "gallery")} />
           </div>
-          <div className="mt-8 text-center">
-            <Link href={pageHref(locale, "gallery")} className="inline-flex items-center gap-2 font-bold text-gold-700 underline-offset-8 hover:underline">
+          <div className="mt-10 text-center">
+            <Link href={pageHref(locale, "gallery")} className="btn btn-gold">
               {ui.seeAllWork}
               <ArrowIcon className="rtl:rotate-180" />
             </Link>
@@ -82,24 +88,30 @@ export function HomePage({ locale }: { locale: Locale }) {
       </section>
 
       <section aria-labelledby="videos-title" className="bg-white">
-        <div className="container-page py-16 sm:py-20">
-          <h2 id="videos-title" className="text-center text-3xl font-bold text-ink sm:text-4xl">
-            {h.videos.title}
-          </h2>
+        <div className="container-page section">
+          <div data-reveal className="mx-auto max-w-3xl text-center">
+            <h2 id="videos-title" className="h-section">
+              {h.videos.title}
+            </h2>
+          </div>
           <div className="mt-10">
             <VideoTiles items={h.videos.items} href={pageHref(locale, "gallery")} playLabel={ui.playVideo} />
           </div>
         </div>
       </section>
 
-      <section aria-label={h.contact.title} className="bg-white pb-16 sm:pb-20">
-        <div className="container-page grid gap-8 lg:grid-cols-2">
-          <ContactCard title={h.contact.title} body={h.contact.body} ui={ui} />
-          <div className="rounded-2xl border border-line p-6 sm:p-8">
-            <h2 className="mb-6 text-2xl font-bold text-ink">{contact.formTitle}</h2>
-            <ContactForm text={ui.form} />
+      <section aria-label={h.contact.title} className="bg-gold-50/60">
+        <div className="container-page section">
+          <div className="grid gap-6 lg:grid-cols-2">
+            <ContactCard title={h.contact.title} body={h.contact.body} ui={ui} />
+            <div data-reveal className="rounded-3xl border border-line bg-white p-6 sm:p-8">
+              <h2 className="h-section">{contact.formTitle}</h2>
+              <div className="mt-6">
+                <ContactForm text={ui.form} />
+              </div>
+            </div>
           </div>
-          <div className="lg:col-span-2">
+          <div className="mt-6">
             <ServiceArea title={contact.mapTitle} body={contact.mapBody} ui={ui} />
           </div>
         </div>

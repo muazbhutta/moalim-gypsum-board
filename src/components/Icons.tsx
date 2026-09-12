@@ -81,6 +81,14 @@ export function MapPinIcon(p: P) {
   );
 }
 
+export function CheckIcon(p: P) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" {...base(p)}>
+      <path d="m4.5 12.5 5 5 10-11" />
+    </svg>
+  );
+}
+
 export function PlayIcon(p: P) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" {...base(p)}>

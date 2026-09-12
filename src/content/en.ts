@@ -47,7 +47,7 @@ export const en: SiteContent = {
       "Gypsum Decor – we offer the best gypsum decor solutions with high quality and creative designs. We always aim to meet our clients' expectations through an outstanding team and complete services.",
     footerContactTitle: "Contact us today!",
     footerLinksTitle: "Useful links",
-    copyright: (year) => `All rights reserved © ${year} ${brand}.`,
+    copyright: "All rights reserved © 2024 Gypsum Decor Makkah.",
     videoUnsupported: "Your browser does not support video playback.",
     notFoundTitle: "Page not found",
     notFoundBody: "Sorry, we couldn't find the page you were looking for. It may have moved or its address may have changed.",

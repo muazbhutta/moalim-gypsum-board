@@ -10,10 +10,9 @@ export const site = {
     tel: "+966599480178",
   },
 
-  // Second phone number. Replace the placeholder with the real number (e.g. "0551234567").
-  // While it is still the placeholder it is hidden from the site and from structured data.
+  // Second phone number. Shown everywhere the first one is; leave it blank to hide it.
   phone2: {
-    display: "05XXXXXXXX",
+    display: "059 542 8955",
   },
 
   whatsapp: "966599480178",

@@ -6,7 +6,7 @@ import { JsonLd } from "./JsonLd";
 
 type Crumb = { name: string; path: string };
 
-/** Title band for inner pages: breadcrumbs (visible + BreadcrumbList JSON-LD), the single h1, and an intro. */
+/** Title band for inner pages: breadcrumbs, the single h1, and a short intro. */
 export function PageHeader({
   locale,
   ui,
@@ -18,14 +18,14 @@ export function PageHeader({
   ui: Ui;
   title: string;
   intro?: string;
-  /** Crumbs after "Home"; paths are language-neutral. The last one is the current page. */
   trail: Crumb[];
 }) {
   const full = [{ name: ui.breadcrumbHome, path: localePath(locale, "/") }, ...trail.map((t) => ({ ...t, path: localePath(locale, t.path) }))];
   return (
-    <header className="border-b border-line bg-gold-50">
+    <header className="relative isolate overflow-hidden border-b border-gold-200/70 bg-gold-50">
+      <div aria-hidden="true" className="absolute -top-20 end-10 -z-10 size-64 rounded-full bg-gold-300/25 blur-3xl" />
       <JsonLd data={breadcrumbLd(full)} />
-      <div className="container-page py-10 sm:py-14">
+      <div className="container-page py-12 sm:py-16">
         <nav aria-label={locale === "ar" ? "مسار التنقل" : "Breadcrumb"}>
           <ol className="flex flex-wrap items-center gap-x-2 text-sm text-muted">
             {full.map((c, i) => {
@@ -33,15 +33,17 @@ export function PageHeader({
               return (
                 <li key={c.path} className="flex items-center gap-2">
                   {last ? (
-                    <span aria-current="page" className="font-medium text-ink">
+                    <span aria-current="page" className="font-bold text-ink">
                       {c.name}
                     </span>
                   ) : (
                     <>
-                      <Link href={c.path} className="underline-offset-4 hover:text-gold-700 hover:underline">
+                      <Link href={c.path} className="underline-offset-4 transition-colors hover:text-gold-700 hover:underline">
                         {c.name}
                       </Link>
-                      <span aria-hidden="true">/</span>
+                      <span aria-hidden="true" className="text-gold-600">
+                        /
+                      </span>
                     </>
                   )}
                 </li>
@@ -49,8 +51,8 @@ export function PageHeader({
             })}
           </ol>
         </nav>
-        <h1 className="mt-4 text-3xl font-bold text-ink sm:text-4xl">{title}</h1>
-        {intro ? <p className="mt-4 max-w-3xl text-lg text-ink-soft">{intro}</p> : null}
+        <h1 className="mt-5 text-[clamp(1.9rem,4.2vw,2.75rem)] leading-tight font-extrabold text-ink">{title}</h1>
+        {intro ? <p className="lead mt-5">{intro}</p> : null}
       </div>
     </header>
   );
