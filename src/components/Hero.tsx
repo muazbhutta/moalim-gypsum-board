@@ -21,7 +21,6 @@ export function Hero({ title, body, pic, ui, points }: { title: string; body: st
 
       <div className="container-page grid items-center gap-12 py-14 sm:py-20 md:grid-cols-2 lg:gap-16 lg:py-24">
         <div>
-          <p className="eyebrow">{ui.tagline}</p>
           <h1 className="text-[clamp(2rem,5vw,3.25rem)] leading-tight font-extrabold text-ink">{title}</h1>
           <p className="lead mt-5 text-ink-soft">{body}</p>
 

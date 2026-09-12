@@ -112,7 +112,6 @@ export function GalleryPage({ locale }: { locale: Locale }) {
       <PageHeader locale={locale} ui={ui} title={gallery.title} intro={gallery.intro} trail={[{ name: ui.nav.gallery, path: pagePaths.gallery }]} />
       <div className={body}>
         <div data-reveal>
-          <p className="eyebrow">{ui.nav.gallery}</p>
           <h2 className="h-section">{gallery.workTitle}</h2>
           <p className="lead mt-4">{gallery.workBody}</p>
         </div>

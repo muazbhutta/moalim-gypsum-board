@@ -69,8 +69,8 @@ export function BlogPage({ locale }: { locale: Locale }) {
     <>
       <PageHeader locale={locale} ui={ui} title={blog.title} intro={blog.intro} trail={[{ name: ui.nav.blog, path: pagePaths.blog }]} />
       <div className={body}>
-        <p className="eyebrow">{blog.postsTitle}</p>
-        <div className="mt-6 grid gap-6">
+        <h2 className="h-section">{blog.postsTitle}</h2>
+        <div className="mt-8 grid gap-6">
           {posts.map((p) => (
             <PostCard key={p.slug} locale={locale} slug={p.slug} title={p.title} excerpt={p.excerpt} image={p.pic.image} alt={p.pic.alt} readMore={ui.readMore} />
           ))}
@@ -125,8 +125,8 @@ export function PostPage({ locale, slug }: { locale: Locale; slug: string }) {
       {others.length ? (
         <section className="border-t border-line bg-gold-50/60">
           <div className={body}>
-            <p className="eyebrow">{ui.latestPosts}</p>
-            <div className="mt-6 grid gap-6">
+            <h2 className="h-section">{ui.latestPosts}</h2>
+            <div className="mt-8 grid gap-6">
               {others.map((p) => (
                 <PostCard key={p.slug} locale={locale} slug={p.slug} title={p.title} excerpt={p.excerpt} image={p.pic.image} alt={p.pic.alt} readMore={ui.readMore} />
               ))}

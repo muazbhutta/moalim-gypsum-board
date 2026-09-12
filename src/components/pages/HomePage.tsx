@@ -28,13 +28,12 @@ export function HomePage({ locale }: { locale: Locale }) {
 
       <Hero title={h.hero.title} body={h.hero.body} pic={h.hero.pic} ui={ui} points={points} />
 
-      <SplitSection eyebrow={ui.nav.about} title={h.intro.title} paragraphs={h.intro.paragraphs} pic={h.intro.pic} />
-      <SplitSection eyebrow={ui.nav.services} title={h.pakistani.title} paragraphs={[h.pakistani.body]} pic={h.pakistani.pic} flip tone="gold" />
+      <SplitSection title={h.intro.title} paragraphs={h.intro.paragraphs} pic={h.intro.pic} />
+      <SplitSection title={h.pakistani.title} paragraphs={[h.pakistani.body]} pic={h.pakistani.pic} flip tone="gold" />
 
       <section aria-labelledby="services-title" className="bg-white">
         <div className="container-page section">
           <div data-reveal className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow eyebrow-center">{ui.nav.services}</p>
             <h2 id="services-title" className="h-section">
               {h.servicesIntro.title}
             </h2>
@@ -58,7 +57,6 @@ export function HomePage({ locale }: { locale: Locale }) {
 
       <section aria-labelledby="team-title" className="bg-ink text-white">
         <div data-reveal className="container-page section text-center">
-          <p className="eyebrow eyebrow-center text-gold-300">{ui.brand}</p>
           <h2 id="team-title" className="h-section text-white">
             {h.team.title}
           </h2>
@@ -69,7 +67,6 @@ export function HomePage({ locale }: { locale: Locale }) {
       <section aria-labelledby="work-title" className="bg-gold-50">
         <div className="container-page section">
           <div data-reveal className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow eyebrow-center">{ui.nav.gallery}</p>
             <h2 id="work-title" className="h-section">
               {h.work.title}
             </h2>

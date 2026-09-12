@@ -4,14 +4,12 @@ import type { Pic } from "@/content/types";
 
 /** Text beside a framed photo: the alternating block down the home page. */
 export function SplitSection({
-  eyebrow,
   title,
   paragraphs,
   pic,
   flip = false,
   tone = "white",
 }: {
-  eyebrow?: string;
   title: string;
   paragraphs: string[];
   pic: Pic;
@@ -23,7 +21,6 @@ export function SplitSection({
     <section className={tone === "gold" ? "bg-gold-50" : "bg-white"}>
       <div className="container-page section grid items-center gap-10 md:grid-cols-2 lg:gap-16">
         <div data-reveal className={flip ? "md:order-2" : ""}>
-          {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
           <h2 className="h-section">{title}</h2>
           <div className="mt-5 space-y-4">
             {paragraphs.map((p) => (
