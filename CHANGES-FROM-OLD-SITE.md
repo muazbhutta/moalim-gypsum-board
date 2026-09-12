@@ -95,3 +95,19 @@ who knows the business.
 - **Opening hours** and a **street address** — the old site never published them, so they are not in
   the business's structured data. Send them over and they can be added.
 - **No reviews, ratings or counts** were invented.
+
+## 8. Update — motion and the work panels
+
+Added after review, at the client's request. This supersedes the "Gallery" line in §6.
+
+- **"اكتشف أعمالنا" now matches the old site.** Two large photo panels per row (440px tall on
+  desktop), each caption hidden until you hover, then sliding into the middle of the photo over a
+  dark veil — the same `#00000096` veil and the same 0.3s/0.4s timings the old site used. Two
+  improvements on top: on phones and tablets (where there is no hover) the captions stay visible,
+  and keyboard focus reveals them as well. The gallery page keeps its lightbox on top of the panels.
+- **Entrance transitions are back.** The old site faded and zoomed sections in as you scrolled
+  (Elementor's fade-up/zoom-in). The same effect now runs as CSS scroll-driven animations, so
+  nothing is added to the JavaScript the visitor downloads. It is skipped entirely for anyone whose
+  device asks for reduced motion, and browsers that do not support it simply show the content.
+- **Hover transitions** on service and article cards (lift + slow photo zoom), footer links, social
+  buttons and the floating call/WhatsApp buttons.
