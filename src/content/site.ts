@@ -6,17 +6,19 @@ export const site = {
   domain: "moalim-gypsumboard-makkah.com",
 
   phone: {
-    display: "0599480178",
-    tel: "+966599480178",
+    display: "059 542 8955",
+    tel: "+966595428955",
   },
 
-  // Second phone number. Shown everywhere the first one is; leave it blank to hide it.
+  // Optional second phone number. Leave the display empty to hide it.
   phone2: {
-    display: "059 542 8955",
+    display: "",
   },
 
   whatsapp: "966599480178",
-  email: "zubut238238@gmail.com",
+  // No email address is published. Add one here and it appears in the contact
+  // lists and in the business data search engines read.
+  email: "",
 
   social: {
     facebook: "https://www.facebook.com/profile.php?id=100046653366956",

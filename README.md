@@ -34,19 +34,22 @@ npm start
 Open **`src/content/site.ts`**. Everything is in one place:
 
 ```ts
-phone:    { display: "0599480178", tel: "+966599480178" },
-phone2:   { display: "05XXXXXXXX" },        // second number
+phone:    { display: "059 542 8955", tel: "+966595428955" },
+phone2:   { display: "" },                  // second number; empty = hidden
 whatsapp: "966599480178",                   // country code + number, no "+" or leading 0
-email:    "zubut238238@gmail.com",
-social:   { facebook: "…", tiktok: "…" },
+email:    "",                               // empty = no email shown anywhere
+social:   { facebook: "…", tiktok: "…" },   // links only; the icons were removed
 ```
 
 The change appears everywhere automatically — header, footer, contact page, the sticky call bar on
 phones, the WhatsApp contact form, and Google's structured data.
 
-**Second phone number:** replace `05XXXXXXXX` with the real number (for example `"0551234567"`).
-While it is still the placeholder it is hidden; as soon as it is a real Saudi mobile number it shows
-up on the site.
+**Adding a number or an email back:** fill in `phone2` (for example `"0551234567"`) or `email`, and
+it appears automatically in the footer, the contact panel, the closing band and the business data
+search engines read. Leave either empty and it is hidden everywhere, with no dead link left behind.
+
+**Note:** WhatsApp still points at `966599480178`, which is a different number from the one shown.
+Change `whatsapp` above if the WhatsApp account moves to 059 542 8955.
 
 ---
 

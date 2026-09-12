@@ -17,13 +17,15 @@ export function ContactList({ ui, tone = "light" }: { ui: Ui; tone?: "light" | "
           </a>
         </li>
       ))}
-      <li>
-        <a href={`mailto:${site.email}`} className={`inline-flex items-center gap-3 font-bold break-all transition-colors ${link}`}>
-          <MailIcon className={icon} />
-          <span className="sr-only">{ui.emailLabel}: </span>
-          <span dir="ltr">{site.email}</span>
-        </a>
-      </li>
+      {site.email ? (
+        <li>
+          <a href={`mailto:${site.email}`} className={`inline-flex items-center gap-3 font-bold break-all transition-colors ${link}`}>
+            <MailIcon className={icon} />
+            <span className="sr-only">{ui.emailLabel}: </span>
+            <span dir="ltr">{site.email}</span>
+          </a>
+        </li>
+      ) : null}
     </ul>
   );
 }

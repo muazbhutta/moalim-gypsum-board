@@ -24,7 +24,7 @@ export function localBusiness(c: SiteContent) {
     image: [abs(images["gallery-bedroom-decor"].original), abs(images.logo.original)],
     telephone: site.phone.tel,
     ...(phones.length > 1 ? { contactPoint: phones.map((p) => ({ "@type": "ContactPoint", telephone: p.tel, contactType: "customer service" })) } : {}),
-    email: site.email,
+    ...(site.email ? { email: site.email } : {}),
     areaServed: city(c.locale),
     address: { "@type": "PostalAddress", addressLocality: "مكة المكرمة", addressCountry: "SA" },
     sameAs: [site.social.facebook, site.social.tiktok],

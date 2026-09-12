@@ -64,7 +64,7 @@ export const en: SiteContent = {
       required: "required",
       errors: {
         name: "Please enter your name (at least 2 characters).",
-        phone: "Please enter a valid Saudi mobile number, e.g. 0599480178.",
+        phone: "Please enter a valid Saudi mobile number, e.g. 0595428955.",
         details: "Please describe your project (at least 10 characters).",
         summary: "Please fix the highlighted fields and try again.",
       },
@@ -76,7 +76,7 @@ export const en: SiteContent = {
     seo: {
       title: "Gypsum Board Contractor in Makkah | Ceilings, Walls & Decor",
       description:
-        "Gypsum board specialist in Makkah: suspended ceilings, partition walls, plain gypsum, cement board and modern gypsum decor by a skilled Pakistani team. Call 0599480178 for a quote.",
+        "Gypsum board specialist in Makkah: suspended ceilings, partition walls, plain gypsum, cement board and modern gypsum decor by a skilled Pakistani team. Call 0595428955 for a quote.",
     },
     hero: {
       title: "Gypsum Board Master in Makkah",
@@ -454,7 +454,7 @@ export const en: SiteContent = {
     seo: {
       title: "Contact Gypsum Board Master Makkah | Call or WhatsApp",
       description:
-        "Contact our gypsum board team in Makkah for a free consultation or a quote for gypsum board, plain gypsum or cement board work. Call or WhatsApp 0599480178.",
+        "Contact our gypsum board team in Makkah for a free consultation or a quote for gypsum board, plain gypsum or cement board work. Call us on 0595428955.",
     },
     title: "Contact us",
     intro:
