@@ -45,3 +45,7 @@ next-env.d.ts
 /scrape/html/
 /scrape/raw/
 /scrape/excluded-media/
+"node_modules/"  
+".env"  
+"dist/"  
+"build/" 
