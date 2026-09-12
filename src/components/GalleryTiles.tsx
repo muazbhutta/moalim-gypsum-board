@@ -1,22 +1,26 @@
 import Link from "next/link";
 import type { GalleryItem } from "@/content/types";
-import { panelSizes, WorkPanelMedia } from "./WorkPanelMedia";
+import { chunk, panelSizes, WorkPanelMedia } from "./WorkPanelMedia";
 
 /**
- * Work panels for the home page: two large photos per row, caption revealed on
- * hover, each linking through to the gallery page. Server-rendered with no
- * client JavaScript, so the home page stays cheap to hydrate.
+ * Work panels for the home page: rows of photo strips that expand on hover,
+ * each linking through to the gallery page. Server rendered with no client
+ * JavaScript, so the home page stays cheap to hydrate.
  */
 export function GalleryTiles({ items, href }: { items: GalleryItem[]; href: string }) {
   return (
-    <ul className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-      {items.map((item) => (
-        <li key={item.image} data-reveal>
-          <Link href={href} className="work-panel">
-            <WorkPanelMedia item={item} sizes={panelSizes} />
-          </Link>
-        </li>
+    <div className="space-y-3 sm:space-y-4">
+      {chunk(items, 3).map((row) => (
+        <ul key={row[0].image} className="work-row">
+          {row.map((item) => (
+            <li key={item.image} data-reveal>
+              <Link href={href} className="work-panel">
+                <WorkPanelMedia item={item} sizes={panelSizes} />
+              </Link>
+            </li>
+          ))}
+        </ul>
       ))}
-    </ul>
+    </div>
   );
 }

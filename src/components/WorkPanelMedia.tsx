@@ -4,9 +4,9 @@ import type { GalleryItem } from "@/content/types";
 
 /**
  * Inside of a work panel: the photo, the veil that darkens on hover, and the
- * caption that slides in. Shared by the linked panels (home) and the
- * clickable ones that open the lightbox (gallery page). Styles live in
- * globals.css under `.work-panel`.
+ * caption that slides in. Shared by the linked panels (home) and the clickable
+ * ones that open the lightbox (gallery page). Styles live in globals.css under
+ * .work-panel and .work-row.
  */
 export function WorkPanelMedia({ item, sizes }: { item: GalleryItem; sizes: string }) {
   const img = images[item.image];
@@ -19,4 +19,12 @@ export function WorkPanelMedia({ item, sizes }: { item: GalleryItem; sizes: stri
   );
 }
 
-export const panelSizes = "(min-width: 1152px) 560px, (min-width: 640px) 48vw, 92vw";
+/** A strip is about a third of the row at rest and roughly 60% while hovered. */
+export const panelSizes = "(min-width: 1024px) 680px, (min-width: 480px) 48vw, 92vw";
+
+/** Split the photos into rows, so each row is its own group of expanding strips. */
+export function chunk<T>(list: T[], size: number): T[][] {
+  const rows: T[][] = [];
+  for (let i = 0; i < list.length; i += size) rows.push(list.slice(i, i + size));
+  return rows;
+}

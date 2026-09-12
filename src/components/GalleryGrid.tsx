@@ -5,14 +5,14 @@ import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { images } from "@/content/media";
 import type { GalleryItem } from "@/content/types";
 import { ArrowIcon, CloseIcon } from "./Icons";
-import { panelSizes, WorkPanelMedia } from "./WorkPanelMedia";
+import { chunk, panelSizes, WorkPanelMedia } from "./WorkPanelMedia";
 
 type Labels = { open: string; close: string; prev: string; next: string; counter: string };
 
 /**
- * Work panels in the old site's style — caption revealed on hover over a dark
- * veil — where each panel also opens the photo full size in an accessible
- * <dialog> (Esc, arrow keys, backdrop click).
+ * Rows of photo strips in the old site's style — each expands on hover and shows
+ * its caption over a dark veil — where clicking one also opens the photo full
+ * size in an accessible <dialog> (Esc, arrow keys, backdrop click).
  */
 export function GalleryGrid({ items, labels }: { items: GalleryItem[]; labels: Labels }) {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -37,16 +37,25 @@ export function GalleryGrid({ items, labels }: { items: GalleryItem[]; labels: L
 
   return (
     <>
-      <ul className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-        {items.map((item, i) => (
-          <li key={item.image} data-reveal>
-            <button type="button" onClick={() => setIndex(i)} aria-haspopup="dialog" className="work-panel text-start">
-              <WorkPanelMedia item={item} sizes={panelSizes} />
-              <span className="sr-only">{` — ${labels.open}`}</span>
-            </button>
-          </li>
+      <div className="space-y-3 sm:space-y-4">
+        {chunk(items, 3).map((row) => (
+          <ul key={row[0].image} className="work-row">
+            {row.map((item) => (
+              <li key={item.image} data-reveal>
+                <button
+                  type="button"
+                  onClick={() => setIndex(items.indexOf(item))}
+                  aria-haspopup="dialog"
+                  className="work-panel text-start"
+                >
+                  <WorkPanelMedia item={item} sizes={panelSizes} />
+                  <span className="sr-only">{` — ${labels.open}`}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
         ))}
-      </ul>
+      </div>
 
       <dialog
         ref={dialog}
