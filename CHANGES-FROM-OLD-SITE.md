@@ -100,11 +100,13 @@ who knows the business.
 
 Added after review, at the client's request. This supersedes the "Gallery" line in §6.
 
-- **"اكتشف أعمالنا" now matches the old site.** Two large photo panels per row (440px tall on
-  desktop), each caption hidden until you hover, then sliding into the middle of the photo over a
-  dark veil — the same `#00000096` veil and the same 0.3s/0.4s timings the old site used. Two
-  improvements on top: on phones and tablets (where there is no hover) the captions stay visible,
-  and keyboard focus reveals them as well. The gallery page keeps its lightbox on top of the panels.
+- **"اكتشف أعمالنا" now matches the old site, including the expanding strips.** The photos sit in
+  rows of three strips, 460px tall on desktop. Hovering one grows it to about 60% of the row while
+  its neighbours shrink to 20% each, and its caption slides into the middle of the photo over a dark
+  veil. All of it uses the old plugin values: flex 1 to 3 over 0.4s, the `#00000096` veil, and the
+  0.3s caption fade. Two improvements on top: on phones and tablets (where there is no hover) the
+  photos stay as a two-up grid with the captions always visible, and keyboard focus expands a strip
+  and shows its caption too. The gallery page keeps its lightbox on top of the strips.
 - **Entrance transitions are back.** The old site faded and zoomed sections in as you scrolled
   (Elementor's fade-up/zoom-in). The same effect now runs as CSS scroll-driven animations, so
   nothing is added to the JavaScript the visitor downloads. It is skipped entirely for anyone whose
