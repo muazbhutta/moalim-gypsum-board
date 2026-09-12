@@ -4,7 +4,7 @@
 
 **Gypsum Board Master Makkah — a bilingual (Arabic / English) website for a gypsum board and interior decoration business in Makkah, Saudi Arabia.**
 
-[![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
@@ -24,7 +24,7 @@ A fast, fully static marketing website for a construction trade business. It exi
 
 The site was rebuilt from scratch to replace a WordPress/Elementor site the business owner no longer had access to. All of the client's own content — text, project photos, videos, phone numbers — was carried over, but none of the original theme code. Every component here is written from zero, so the client fully owns the result.
 
-**Live site:** [moalim-gypsumboard-makkah.com](https://moalim-gypsumboard-makkah.com)
+**Live site:** [www.moalimgypsumboardmakkah.com](https://www.moalimgypsumboardmakkah.com)
 
 ---
 
