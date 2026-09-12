@@ -30,7 +30,7 @@ export const images = {
   'home-5-29': { src: '/media/images/home-5-29.webp', original: '/media/images/home-5-29.png', width: 564, height: 555 },
   'home-ceiling-installation': { src: '/media/images/home-ceiling-installation.webp', original: '/media/images/home-ceiling-installation.png', width: 1600, height: 1067 },
   'home-gypsum-master': { src: '/media/images/home-gypsum-master.webp', original: '/media/images/home-gypsum-master.png', width: 1600, height: 1188 },
-  'logo': { src: '/media/images/logo.webp', original: '/media/images/logo.png', width: 383, height: 367 },
+  'logo': { src: '/media/images/logo.webp', original: '/media/images/logo.png', width: 900, height: 803 },
   'service-interior-exterior-decor': { src: '/media/images/service-interior-exterior-decor.webp', original: '/media/images/service-interior-exterior-decor.webp', width: 700, height: 500 },
   'service-material-alternatives': { src: '/media/images/service-material-alternatives.webp', original: '/media/images/service-material-alternatives.webp', width: 700, height: 500 },
   'service-modern-ceilings': { src: '/media/images/service-modern-ceilings.webp', original: '/media/images/service-modern-ceilings.webp', width: 700, height: 500 },

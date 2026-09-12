@@ -18,7 +18,7 @@ export function Footer({ locale, ui }: { locale: Locale; ui: Ui }) {
       <div className="container-page grid gap-10 py-14 sm:py-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
         <div className="lg:col-span-1">
           <span className="inline-block rounded-2xl bg-white p-3">
-            <Image src={images.logo.src} alt={ui.brand} width={72} height={69} className="h-16 w-auto" />
+            <Image src={images.logo.src} alt={ui.brand} width={72} height={64} className="h-16 w-auto" />
           </span>
           <p className="mt-5 text-sm leading-7">{ui.footerAbout}</p>
         </div>

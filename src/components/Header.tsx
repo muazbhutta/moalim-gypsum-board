@@ -14,7 +14,7 @@ export function Header({ locale, ui }: { locale: Locale; ui: Ui }) {
     <header className="sticky top-0 z-40 border-b border-line/80 bg-white/90 backdrop-blur-md">
       <div className="container-page relative flex h-20 items-center gap-3">
         <Link href={pageHref(locale, "home")} className="me-auto shrink-0 lg:me-0" aria-label={ui.brand}>
-          <Image src={images.logo.src} alt={ui.brand} width={56} height={54} className="h-13 w-auto" preload />
+          <Image src={images.logo.src} alt={ui.brand} width={72} height={64} className="h-14 w-auto sm:h-16" preload />
         </Link>
         <NavMenu
           items={items}

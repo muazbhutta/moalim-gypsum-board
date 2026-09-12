@@ -15,7 +15,7 @@ export default function GlobalNotFound() {
     <html lang="ar" dir="rtl" className={tajawal.variable}>
       <body className="grid min-h-dvh place-items-center bg-gold-50 px-4">
         <main className="max-w-lg text-center">
-          <Image src={images.logo.src} alt="معلم جبس بورد مكة" width={104} height={100} className="mx-auto h-24 w-auto" />
+          <Image src={images.logo.src} alt="معلم جبس بورد مكة" width={108} height={96} className="mx-auto h-24 w-auto" />
           <h1 className="mt-6 text-3xl font-bold text-ink">الصفحة غير موجودة</h1>
           <p className="mt-3 text-lg text-ink-soft">عذرًا، لم نجد الصفحة التي تبحث عنها.</p>
           <p lang="en" dir="ltr" className="mt-2 text-ink-soft">
