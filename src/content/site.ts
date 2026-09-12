@@ -26,8 +26,11 @@ export const site = {
     tiktok: "https://www.tiktok.com/@answarsheikh123",
   },
 
-  // Link only — no embedded map, so no Google script runs on the site.
-  mapsUrl: "https://www.google.com/maps/search/?api=1&query=%D9%85%D9%83%D8%A9+%D8%A7%D9%84%D9%85%D9%83%D8%B1%D9%85%D8%A9",
+  // Searches Google Maps for the business by name (a link only, so no Google
+  // script runs on the site). Once the client has a Google Business Profile,
+  // this opens straight to their listing.
+  placeName: "معلم جبس بورد مكة",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=%D9%85%D8%B9%D9%84%D9%85%20%D8%AC%D8%A8%D8%B3%20%D8%A8%D9%88%D8%B1%D8%AF%20%D9%85%D9%83%D8%A9",
 } as const;
 
 /** Saudi mobile in local form (05xxxxxxxx) → international tel: value, or null if not a real number. */

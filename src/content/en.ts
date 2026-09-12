@@ -34,7 +34,7 @@ export const en: SiteContent = {
     phoneLabel: "Phone",
     emailLabel: "Email",
     followUs: "Follow us",
-    openMap: "View Makkah on Google Maps",
+    openMap: "View معلم جبس بورد مكة on Google Maps",
     serviceArea: "We serve Makkah and the surrounding areas.",
     readMore: "Read article",
     seeAllWork: "See all our work",
@@ -69,7 +69,7 @@ export const en: SiteContent = {
         details: "Please describe your project (at least 10 characters).",
         summary: "Please fix the highlighted fields and try again.",
       },
-      message: `Hello, I would like to request a service from ${brand}.\n\nName: {name}\nMobile: {phone}\nProject details:\n{details}`,
+      message: `Hello, I would like to request a service from Moalim Gypsum Board Makkah (معلم جبس بورد مكة).\n\nName: {name}\nMobile: {phone}\nProject details:\n{details}`,
     },
   },
 

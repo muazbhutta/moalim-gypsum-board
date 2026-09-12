@@ -34,7 +34,7 @@ export const ar: SiteContent = {
     phoneLabel: "الهاتف",
     emailLabel: "البريد الإلكتروني",
     followUs: "تابعنا",
-    openMap: "عرض مكة المكرمة على خرائط Google",
+    openMap: "عرض معلم جبس بورد مكة على خرائط Google",
     serviceArea: "نخدم مكة المكرمة والمناطق المحيطة بها.",
     readMore: "اقرأ المقال",
     seeAllWork: "شاهد جميع الأعمال",
@@ -69,7 +69,7 @@ export const ar: SiteContent = {
         details: "يرجى كتابة تفاصيل المشروع (١٠ أحرف على الأقل).",
         summary: "يرجى تصحيح الحقول المشار إليها ثم المحاولة مرة أخرى.",
       },
-      message: `السلام عليكم، أرغب في طلب خدمة من ${brand}.\n\nالاسم: {name}\nالجوال: {phone}\nتفاصيل المشروع:\n{details}`,
+      message: `السلام عليكم، أرغب في طلب خدمة من معلم جبس بورد مكة.\n\nالاسم: {name}\nالجوال: {phone}\nتفاصيل المشروع:\n{details}`,
     },
   },
 
