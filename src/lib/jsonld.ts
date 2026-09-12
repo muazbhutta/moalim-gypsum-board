@@ -32,6 +32,18 @@ export function localBusiness(c: SiteContent) {
   };
 }
 
+export function webSiteLd(c: SiteContent) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${site.url}/#website`,
+    url: abs(localePath(c.locale, "/")),
+    name: c.ui.brand,
+    inLanguage: c.locale === "ar" ? "ar-SA" : "en",
+    publisher: { "@id": businessId },
+  };
+}
+
 export function serviceLd(locale: Locale, s: Service, pagePath: string) {
   return {
     "@context": "https://schema.org",

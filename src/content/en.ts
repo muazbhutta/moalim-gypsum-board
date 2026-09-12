@@ -46,9 +46,10 @@ export const en: SiteContent = {
     footerAboutTitle: "About us",
     footerAbout:
       "Gypsum Decor – we offer the best gypsum decor solutions with high quality and creative designs. We always aim to meet our clients' expectations through an outstanding team and complete services.",
-    footerContactTitle: "Contact us today!",
+    footerContactTitle: "Contact details",
+    serviceAreaTitle: "Service area",
     footerLinksTitle: "Useful links",
-    copyright: "All rights reserved © 2024 Gypsum Decor Makkah.",
+    copyright: "All rights reserved © {year} Gypsum Decor Makkah.",
     videoUnsupported: "Your browser does not support video playback.",
     notFoundTitle: "Page not found",
     notFoundBody: "Sorry, we couldn't find the page you were looking for. It may have moved or its address may have changed.",
@@ -77,7 +78,7 @@ export const en: SiteContent = {
     seo: {
       title: "Gypsum Board Contractor in Makkah | Ceilings, Walls & Decor",
       description:
-        "Gypsum board specialist in Makkah: suspended ceilings, partition walls, plain gypsum, cement board and modern gypsum decor by a skilled Pakistani team. Call 0595428955 for a quote.",
+        "Gypsum board specialist in Makkah: suspended ceilings, partition walls, plain gypsum and cement board decor. Call 0595428955 for a free quote.",
     },
     hero: {
       title: "Gypsum Board Master in Makkah",
@@ -129,7 +130,7 @@ export const en: SiteContent = {
       {
         id: "partition-walls",
         title: "2. Partition walls",
-        body: "High-quality gypsum board walls that give you flexibility in dividing spaces while keeping elegance and privacy.",
+        body: "Gypsum board partition walls that divide space flexibly, with sound insulation and a neat finish that keeps privacy.",
         pic: { image: "service-partition-walls", alt: "Gypsum board partition wall dividing an interior space" },
         schemaName: "Gypsum board partition walls",
       },
@@ -264,7 +265,7 @@ export const en: SiteContent = {
     seo: {
       title: "Gypsum Board Services in Makkah | Ceilings & Partitions",
       description:
-        "Gypsum board services in Makkah: Armstrong and aluminium suspended ceilings, sound-insulating partition walls, marble and wood alternatives, and interior and exterior decor. Free consultation.",
+        "Gypsum board services in Makkah: suspended ceilings, sound-insulating partition walls, marble and wood alternatives, interior and exterior decor.",
     },
     title: "Our services",
     intro:
@@ -338,7 +339,7 @@ export const en: SiteContent = {
     seo: {
       title: "Gypsum Board Decor Portfolio, Makkah | Photos & Videos",
       description:
-        "Real photos and videos of our gypsum board work: suspended ceilings, hidden lighting, TV walls, bedrooms and majlis rooms. See the quality of our work before you ask for a quote.",
+        "Real photos and videos of our gypsum board work in Makkah: suspended ceilings, hidden lighting, TV walls, bedrooms and majlis rooms.",
     },
     title: "Our work",
     intro:
@@ -383,7 +384,7 @@ export const en: SiteContent = {
     seo: {
       title: "Gypsum Board FAQ, Makkah | Timing, Cost & Warranty",
       description:
-        "How long does gypsum board work take? How are gypsum board prices in Makkah calculated? Is there a warranty? Clear answers about our services, materials and how to book.",
+        "How long does gypsum board work take? How are prices in Makkah calculated? Is there a warranty? Clear answers about our services and materials.",
     },
     title: "Frequently asked questions",
     intro:
@@ -455,7 +456,7 @@ export const en: SiteContent = {
     seo: {
       title: "Contact Gypsum Board Master Makkah | Call or WhatsApp",
       description:
-        "Contact our gypsum board team in Makkah for a free consultation or a quote for gypsum board, plain gypsum or cement board work. Call or WhatsApp 0595428955.",
+        "Contact our gypsum board team in Makkah for a free consultation or a quote. Call or WhatsApp 0595428955.",
     },
     title: "Contact us",
     intro:
@@ -619,7 +620,7 @@ export const en: SiteContent = {
       seo: {
         title: "Gypsum Board Decor in Makkah | Latest Designs",
         description:
-          "The latest gypsum board decor designs in Makkah: gypsum ceilings, partition walls, gypsum TV walls and 3D decor, plus how we work and why clients choose us.",
+          "The latest gypsum board decor designs in Makkah: gypsum ceilings, partition walls, TV walls and 3D decor, plus how we work.",
       },
       pic: { image: "gallery-tv-wall-decor", alt: "TV wall with gypsum board decor and hidden lighting" },
       excerpt:
@@ -680,7 +681,7 @@ export const en: SiteContent = {
       seo: {
         title: "Gypsum Board Master in Makkah | Services & Fair Prices",
         description:
-          "Looking for an experienced gypsum board installer in Makkah? We install gypsum ceilings, partition walls and gypsum TV walls with high quality and competitive prices.",
+          "Looking for an experienced gypsum board installer in Makkah? We fit gypsum ceilings, partition walls and TV walls at competitive prices.",
       },
       pic: { image: "gallery-reception-hall", alt: "Reception hall with a gypsum board ceiling and linear lighting" },
       excerpt:

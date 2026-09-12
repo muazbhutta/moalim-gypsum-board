@@ -75,6 +75,7 @@ export type Ui = {
   footerAboutTitle: string;
   footerAbout: string;
   footerContactTitle: string;
+  serviceAreaTitle: string;
   footerLinksTitle: string;
   copyright: string;
   videoUnsupported: string;

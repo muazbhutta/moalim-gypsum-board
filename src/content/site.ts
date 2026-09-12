@@ -2,8 +2,9 @@
 // Change a value here and it updates across the whole site, in both languages.
 
 export const site = {
-  url: "https://moalim-gypsumboard-makkah.com",
-  domain: "moalim-gypsumboard-makkah.com",
+  // The live canonical host. The apex and http both 308-redirect to www.
+  url: "https://www.moalimgypsumboardmakkah.com",
+  domain: "www.moalimgypsumboardmakkah.com",
 
   phone: {
     display: "059 542 8955",

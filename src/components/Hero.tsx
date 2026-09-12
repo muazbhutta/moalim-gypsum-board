@@ -54,7 +54,7 @@ export function Hero({ title, body, pic, ui, points }: { title: string; body: st
             alt={pic.alt}
             width={photo.width}
             height={photo.height}
-            loading="eager"
+            preload
             sizes="(min-width: 1152px) 540px, (min-width: 768px) 45vw, 92vw"
             className="aspect-[4/3] h-auto w-full rounded-3xl object-cover shadow-2xl"
           />

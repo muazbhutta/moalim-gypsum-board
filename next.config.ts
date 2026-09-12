@@ -4,6 +4,10 @@ import { mediaRedirects, pageRedirects } from "./redirects.config";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
 
+  // Next's own trailing-slash redirect would run before the rules below, turning
+  // every legacy "/page/" URL into two hops. Handled explicitly instead.
+  skipTrailingSlashRedirect: true,
+
   experimental: {
     // Needed for a single 404 page when the site has two root layouts (Arabic and English).
     globalNotFound: true,
@@ -15,7 +19,11 @@ const nextConfig: NextConfig = {
   },
 
   async redirects() {
-    return [...pageRedirects, ...mediaRedirects].map((r) => ({ ...r, statusCode: 301 as const }));
+    return [
+      ...[...pageRedirects, ...mediaRedirects].map((r) => ({ ...r, statusCode: 301 as const })),
+      // Anything else that arrives with a trailing slash loses it.
+      { source: "/:path+/", destination: "/:path+", statusCode: 308 as const },
+    ];
   },
 
   async headers() {

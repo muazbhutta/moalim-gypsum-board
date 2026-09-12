@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import type { Locale } from "@/content/types";
 import { getContent } from "@/lib/content";
 import { tajawal } from "@/lib/fonts";
-import { localBusiness } from "@/lib/jsonld";
+import { localBusiness, webSiteLd } from "@/lib/jsonld";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { JsonLd } from "./JsonLd";
@@ -20,7 +20,7 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
         >
           {c.ui.skipToContent}
         </a>
-        <JsonLd data={localBusiness(c)} />
+        <JsonLd data={[localBusiness(c), webSiteLd(c)]} />
         <Header locale={locale} ui={c.ui} />
         <main id="main" className="flex-1">
           {children}

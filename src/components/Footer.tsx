@@ -44,7 +44,7 @@ export function Footer({ locale, ui }: { locale: Locale; ui: Ui }) {
         </div>
 
         <div>
-          <h2 className={heading}>{ui.nav.gallery}</h2>
+          <h2 className={heading}>{ui.serviceAreaTitle}</h2>
           <p className="mt-4 flex items-start gap-2 text-sm leading-7">
             <MapPinIcon className="mt-1 shrink-0 text-gold-300" width={18} height={18} />
             {ui.serviceArea}
@@ -65,7 +65,9 @@ export function Footer({ locale, ui }: { locale: Locale; ui: Ui }) {
       </div>
 
       <div className="border-t border-white/10">
-        <p className="container-page py-5 text-center text-sm text-white/60">{ui.copyright}</p>
+        <p className="container-page py-5 text-center text-sm text-white/60">
+          {ui.copyright.replace("{year}", String(new Date().getFullYear()))}
+        </p>
       </div>
     </footer>
   );
